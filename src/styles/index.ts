@@ -15,7 +15,9 @@ const {
   createGlobalStyle,
   keyframes,
   ThemeProvider
-} = styledComponents as styledComponents.ThemedStyledComponentsModule<ThemeInterface>
+} = styledComponents as styledComponents.ThemedStyledComponentsModule<
+  ThemeInterface
+>
 
 export default styled
 export { css, createGlobalStyle, keyframes, ThemeProvider }

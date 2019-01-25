@@ -15,45 +15,47 @@ const ClobalStyle = createGlobalStyle`
 
 const Home = () => (
   <div>
-    <Text text='home' />
-    <Link to='/'>home</Link><br />
-    <Link to='/under'>under</Link>
+    <Text text="home" />
+    <Link to="/">home</Link>
+    <br />
+    <Link to="/under">under</Link>
   </div>
 )
 const Under = () => (
   <div>
-    <Text text='under' />
-    <Link to='/'>home</Link><br />
-    <Link to='/under'>under</Link>
+    <Text text="under" />
+    <Link to="/">home</Link>
+    <br />
+    <Link to="/under">under</Link>
   </div>
 )
 
 class App extends Component {
   render() {
     return (
-      <div className='App'>
+      <div className="App">
         <ClobalStyle />
         <ThemeProvider theme={Theme}>
-          <header className='App-header'>
-            <img src={logo} className='App-logo' alt='logo' />
+          <header className="App-header">
+            <img src={logo} className="App-logo" alt="logo" />
             <p>
-            Edit <code>src/App.js</code> and save to reload.
+              Edit <code>src/App.js</code> and save to reload.
             </p>
 
             <BrowserRouter>
               <div>
-                <Route exact path='/' component={Home} />
-                <Route path='/under' component={Under} />
+                <Route exact path="/" component={Home} />
+                <Route path="/under" component={Under} />
               </div>
             </BrowserRouter>
 
             <a
-              className='App-link'
-              href='https://reactjs.org'
-              target='_blank'
-              rel='noopener noreferrer'
+              className="App-link"
+              href="https://reactjs.org"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-            Learn React
+              Learn React
             </a>
           </header>
         </ThemeProvider>

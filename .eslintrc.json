@@ -29,6 +29,7 @@
     "react/no-unused-prop-types": 0,
     "react/prop-types": 0,
     "react/react-in-jsx-scope": "error",
+    "jsx-quotes": 0,
     "space-before-function-paren": 0
   },
   "globals": {

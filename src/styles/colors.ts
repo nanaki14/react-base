@@ -1,5 +1,5 @@
 interface Color {
-  primaryColor: string;
+  primaryColor: string
 }
 
 const Color = {
