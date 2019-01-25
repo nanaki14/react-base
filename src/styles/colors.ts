@@ -1,7 +1,9 @@
-export interface ColorInterface {
+interface Color {
   primaryColor: string;
 }
 
-export const color = {
-  primaryColor: "#e9e9e9"
+const Color = {
+  primaryColor: '#e9e9e9'
 }
+
+export default Color
