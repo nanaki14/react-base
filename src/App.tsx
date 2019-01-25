@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+// import { BrowserRouter, Route, Link } from 'react-router-dom'
+
+import Text from '~/text';
+
+import logo from '~/logo.svg';
+import '~/App.css';
 
 class App extends Component {
   render() {
@@ -11,6 +15,7 @@ class App extends Component {
           <p>
             Edit <code>src/App.js</code> and save to reload.
           </p>
+          <Text text="test"/>
           <a
             className="App-link"
             href="https://reactjs.org"
