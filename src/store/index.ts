@@ -1,29 +1,38 @@
-import { applyMiddleware, createStore, combineReducers } from 'redux'
+import { applyMiddleware, createStore, combineReducers, compose } from 'redux'
 import createSagaMiddleware from 'redux-saga'
 import * as sample from '~/store/modules/sample'
 import rootSaga from '~/store/sagas'
-
-declare global {
-  interface Window {
-    __REDUX_DEVTOOLS_EXTENSION__?: () => any
-  }
-}
 
 export type RootState = {
   sample: sample.State
 }
 
 const configureStore = () => {
-  // const createStoreWithMiddleware = compose(
-  //   applyMiddleware(),
-  // )(createStore)
   const sagaMiddleware = createSagaMiddleware()
+  const win = window as any
+
+  /* redux-dev-tools */
+  const dev =
+    process.env.NODE_ENV !== 'production' ||
+    (typeof window === 'object' && window.location.search === '?dev')
+
+  const composeEnhancers =
+    typeof win === 'object' && win.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+      ? win.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
+          // Specify extension’s options like name, actionsBlacklist, actionsCreators, serialize...
+        })
+      : compose
+
+  // with middleware
+  const enhancer = dev
+    ? composeEnhancers(applyMiddleware(sagaMiddleware))
+    : applyMiddleware(sagaMiddleware)
 
   const reducers = combineReducers({
     sample: sample.reducer
   } as any)
 
-  const store = createStore(reducers, applyMiddleware(sagaMiddleware))
+  const store = createStore(reducers, enhancer)
 
   sagaMiddleware.run(rootSaga)
 
@@ -31,9 +40,3 @@ const configureStore = () => {
 }
 
 export default configureStore
-
-/*
-process.env.NODE_ENV === 'development' &&
-      window.__REDUX_DEVTOOLS_EXTENSION__ &&
-      window.__REDUX_DEVTOOLS_EXTENSION__()
- */
