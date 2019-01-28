@@ -1,19 +1,15 @@
 import { takeEvery, put, call } from 'redux-saga/effects'
 import { sample as sampleActions } from '~/store/modules/sample'
 
+const get = (object) =>
+  new Promise((resolve) => {
+    setTimeout(() => resolve(object), 1000)
+  })
+
 function* handleIncrement() {
-  const timeout = (object: object) =>
-    new Promise((resolve) =>
-      setTimeout(() => {
-        resolve({
-          payload: object
-        })
-      }, 5000)
-    )
-  const { payload, err } = yield call(timeout, {})
-  console.log(payload)
-  console.log(err)
+  const { data, err } = yield call(get, {})
+  console.log(data, err)
   yield put(sampleActions.creators.incrementFinished())
 }
 
-export default [takeEvery([sampleActions.creators.increment], handleIncrement)]
+export default [takeEvery(sampleActions.types.increment, handleIncrement)]
