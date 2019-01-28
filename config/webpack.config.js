@@ -24,7 +24,6 @@ const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin-alt');
 const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
 const PrettierPlugin = require("prettier-webpack-plugin");
-const Dotenv = require('dotenv-webpack');
 
 
 // Source maps are resource heavy and can cause out of memory issue for large source files.
@@ -472,7 +471,6 @@ module.exports = function(webpackEnv) {
       ],
     },
     plugins: [
-      new Dotenv(),
       new PrettierPlugin({
         "tabWidth": 2,
         "useTabs": false,

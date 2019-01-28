@@ -1,9 +1,9 @@
-interface Color {
+interface color {
   primaryColor: string
 }
 
-const Color = {
+const color = {
   primaryColor: '#e9e9e9'
 }
 
-export default Color
+export default color

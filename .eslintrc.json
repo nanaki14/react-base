@@ -2,7 +2,8 @@
   "extends": [
     "react-app",
     "standard",
-    "standard-react"
+    "standard-react",
+    "eslint-config-prettier"
   ],
   "plugins": [
     "react",
@@ -30,7 +31,8 @@
     "react/prop-types": 0,
     "react/react-in-jsx-scope": "error",
     "jsx-quotes": 0,
-    "space-before-function-paren": 0
+    "space-before-function-paren": 0,
+    "no-unused-vars": 0
   },
   "globals": {
     "window": true,
