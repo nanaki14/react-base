@@ -3,7 +3,7 @@ import * as styledComponents from 'styled-components'
 import Color from '~/theme/colors'
 import GlobalStyles from '~/theme/GlobalStyles'
 
-export interface ThemeInterface {
+interface ThemeInterface {
   color: Color
 }
 

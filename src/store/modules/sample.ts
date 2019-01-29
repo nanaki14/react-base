@@ -8,10 +8,10 @@ export type State = {
   isLoading: boolean
 }
 
-const initialState = (): State => ({
+const initialState: State = {
   count: 0,
   isLoading: false
-})
+}
 
 // ====================================================
 //  mutations
@@ -39,7 +39,16 @@ export const mutations = {
 }
 
 // ====================================================
+//  queries
+
+function getCount(state: State) {
+  return `this ${state.count} count`
+}
+
+export const queries = { getCount }
+
+// ====================================================
 //  reducer
 
 export const sample = createAggregate(mutations, 'sample/')
-export const reducer = sample.reducerFactory(initialState())
+export const reducer = sample.reducerFactory(initialState)

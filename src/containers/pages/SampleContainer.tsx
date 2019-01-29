@@ -1,12 +1,13 @@
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { sample as sampleActions } from '~/store/modules/sample'
+import { sample as sampleActions, queries } from '~/store/modules/sample'
 
 import Sample from '~/components/pages/Sample'
 
 const mapStateToProps = (state) => {
   return {
-    sample: state.sample
+    sample: state.sample,
+    getCount: queries.getCount(state.sample)
   }
 }
 
